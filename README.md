@@ -14,6 +14,13 @@ This is a reproducibility study of multi label classification problem in Healthc
 The key focus of the paper is to improve classification performance with a novel architecture proposed as **Segmentation-based Deep Fusion Network**. The SDFN architecture is based on the crucial idea that most of Thoracic disease related features are centered within lung region. So the network builds first a Lung segmentation model, with which a dual pathway CNN using DenseNet-121s are trained. One model (referred as Feature Extraction Model - FEM) with actual full CX image (FEM-1) and another model (FEM-2) fed with cropped Lung region image. The latent vectors from both FEM-1 and FEM-2 are taken to train final SDFN model to multi-classify among 14 Thoracic Lung diseases. The hypothesis of the paper is that SDFN using Lung Segementation improves performance over non-Lung Segementation based model.
 
 
+
+### Model Pipeline Architecture
+Here is the pipeline flow of different model sequence and their inter-dependency along with data sets.
+
+<img src="https://github.com/veerendra12/CS598-DL4H-Project/blob/main/media/TrainingPipeline.png" width=600>
+
+
 ## ⚙️ Computational Requirements
 This study needs a GPU minimum of 16GB RAM, minimum configuration of T4, P100 or higher is needed. The code, primarily as ipynb notebooks, have been developed using [Google colab](https://colab.research.google.com/) GPU environment. And it uses [Google drive](https://drive.google.com/) as storage service. However, the code can be easily tweaked to run on a different environment and different storage. Use [notebooks/Configuration.ipynb](notebooks/Configuration.ipynb) to change storage location of data sets and results.
 
