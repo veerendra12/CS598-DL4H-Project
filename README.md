@@ -1,5 +1,17 @@
 # CS598-DL4H-Project
 
+## Summary
+This is a reproducibility study of multi label classification problem in Healthcare Industry proposed in following research paper. 
+
+### Citation
+> **Title:** SDFN Segmentation-based Deep Fusion Network for Thoracic Disease Classification in Chest X-ray Images
+
+> **Authors:** Han Liu, Lei Wang, Yandong Nan, Faguang Jin, Qi Wang, and Jiantao Pu
+
+> **Published On:** 30 Oct 2018
+> **Journal:** Comput Med Imaging Graph, 2019
+
+
 ## 📦 Computational Requirements
 This study needs a GPU minimum of 16GB RAM, minimum configuration of T4, P100 or higher is needed. The code, primarily as ipynb notebooks, have been developed using [Google colab](https://colab.research.google.com/) GPU environment. And it uses [Google drive](https://drive.google.com/) as storage service. However, the code can be easily tweaked to run on a different environment and different storage. Use [notebooks/Configuration.ipynb](notebooks/Configuration.ipynb) to change storage location of data sets and results.
 
