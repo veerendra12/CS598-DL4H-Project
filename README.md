@@ -43,6 +43,24 @@ This study uses following two sets of data sets:
 
 [^1]: The original paper used JSRT Dataset for Lung segmentation model training. Because of the challenge in getting the full dataset, we have used cited Montgomery Country X-Ray Data set for Lung Segmentation model 
 
+## Preprocessing of Data
+The NIH label data [Data_Entry_2017_v2020.csv](https://github.com/veerendra12/CS598-DL4H-Project/blob/main/data/Data_Entry_2017_v2020.csv) comes in a named format as below:
+
+<img src="https://github.com/veerendra12/CS598-DL4H-Project/blob/main/media/RawLabelData.png" width=1000>
+
+The preprocessing process converts into one hot vector form [NIH_CXR_Data_OneHot_Full.csv](https://github.com/veerendra12/CS598-DL4H-Project/blob/main/data/NIH_CXR_Data_OneHot_Full.csv) as follows:
+
+<img src="https://github.com/veerendra12/CS598-DL4H-Project/blob/main/media/SampleOneHotVector.png" width=1000>
+
+For performing the preprocessing of the label data, perform:
+1. Open [NIHPreprocessor.ipynb](https://github.com/veerendra12/CS598-DL4H-Project/blob/main/notebooks/NIHPreprocessor.ipynb) 
+2. Run the method
+```
+convert_NIH_labels_to_onehotvectors()
+```
+All the image data sets are transformed during model runtime. No preprocessing before training is required.
+
+
 ## 🚆 Model Training
 
 Citation to the original paper
