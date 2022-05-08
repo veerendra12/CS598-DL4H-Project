@@ -71,6 +71,7 @@ FEM-1 uses Dense-121 architecture based model fed with full resolution of NIH CX
 
 | Parameter                 | Value           | Description                                                      |
 |---------------------------|-----------------|------------------------------------------------------------------|
+| EVAL_MODE                 | False           | Training mode                                                    |
 | MODEL_TYPE                | FEM             | Train FEM type model                                             |
 | USE_LUNG_REGION_GENERATOR | False           | Uses full CXR image for training                                 |
 | SAMPLE_RATIO              | 0.5             | Uses 50% of the data set for train and validation.               |
@@ -96,6 +97,7 @@ FEM-1 uses Dense-121 architecture based model fed with Lung Region cropped NIH C
 
 | Parameter                 | Value           | Description                                                      |
 |---------------------------|-----------------|------------------------------------------------------------------|
+| EVAL_MODE                 | False           | Training mode                                                    |
 | MODEL_TYPE                | FEM             | Train FEM type model                                             |
 | USE_LUNG_REGION_GENERATOR | True            | Uses Lung Region cropped NIH CXR images for training             |
 | SAMPLE_RATIO              | 0.5             | Uses 50% of the data set for train and validation.               |
@@ -122,6 +124,7 @@ SDFN uses earlier pretrained best FEM-1 (``fem-1_nih_50pc_*i*.pth``) and FEM-2 (
 
 | Parameter                 | Value           | Description                                                      |
 |---------------------------|-----------------|------------------------------------------------------------------|
+| EVAL_MODE                 | False           | Training mode                                                    |
 | MODEL_TYPE                | SDFN            | Train SDFNtype model                                             |
 | USE_LUNG_REGION_GENERATOR | False           | FEM-1 uses full img and FEM-2 uses lung region img automatically |
 | SAMPLE_RATIO              | 0.5             | Uses 50% of the data set for train and validation.               |
@@ -137,5 +140,28 @@ For training SDFN, perform:
 
 
 ## ⏱️ Model Evaluation
+### Evaluating Feature Extraction Model-1 (FEM-1):
+Ensure or set the following configuration parameters in Configuration.ipynb(https://github.com/veerendra12/CS598-DL4H-Project/blob/main/notebooks/Configuration.ipynb), in additon to 'FEM-1 Training' parameters before initiating the evaluation run:
+
+| Parameter                 | Value           | Description                                                      |
+|---------------------------|-----------------|------------------------------------------------------------------|
+| EVAL_MODE                 | True            | Evaluationode                                                    |
+
+### Evaluating Feature Extraction Model-1 (FEM-2):
+Ensure or set the following configuration parameters in Configuration.ipynb(https://github.com/veerendra12/CS598-DL4H-Project/blob/main/notebooks/Configuration.ipynb), in additon to 'FEM-2 Training' parameters before initiating the evaluation run:
+
+| Parameter                 | Value           | Description                                                      |
+|---------------------------|-----------------|------------------------------------------------------------------|
+| EVAL_MODE                 | True            | Evaluationode                                                    |
+
+
+### Evaluating Segementation based Deep Fusion Netowrk (SDFN):
+Ensure or set the following configuration parameters in Configuration.ipynb(https://github.com/veerendra12/CS598-DL4H-Project/blob/main/notebooks/Configuration.ipynb), in additon to 'SDFN Training' parameters before initiating the evaluation run:
+
+| Parameter                 | Value           | Description                                                      |
+|---------------------------|-----------------|------------------------------------------------------------------|
+| EVAL_MODE                 | True            | Evaluationode                                                    |
+
+
 
 ## 🥅 Results
