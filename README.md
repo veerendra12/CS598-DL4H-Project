@@ -1,6 +1,6 @@
 # CS598-DL4H-Project
 
-## Summary
+## 📗 Summary
 This is a reproducibility study of multi label classification problem in Healthcare Industry proposed in following research paper. 
 
 ### Citation
@@ -136,6 +136,6 @@ For training SDFN, perform:
 2. Run all
 
 
-## 🚆 Model Evaluation
+## ⏱️ Model Evaluation
 
-## 🚆 Results
+## 🥅 Results
