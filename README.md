@@ -184,4 +184,4 @@ Following are some of the results from **Lung Region Generator** (LRG) model
 <img src="https://github.com/veerendra12/CS598-DL4H-Project/blob/main/media/LRGImage4.png" width=1000>
 <img src="https://github.com/veerendra12/CS598-DL4H-Project/blob/main/media/LRGImage5.png" width=1000>
 
-## 🥅 Conclusion
+### Classification Performance FEM-1 vs FEM-2 vs SDFN
