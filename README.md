@@ -82,10 +82,14 @@ FEM-1 uses Dense-121 architecture based model fed with full resolution of NIH CX
 
 
 For training FEM-1, perform:
-1. Open [FeatureExtractionModels.ipynb](https://github.com/veerendra12/CS598-DL4H-Project/blob/main/notebooks/FeatureExtractionModels.ipynb) 
+1. Open [SDFNPipeLine.ipynb](https://github.com/veerendra12/CS598-DL4H-Project/blob/main/notebooks/SDFNPipeLine.ipynb) 
 2. Run all
 
-Once training is completed, take the best ``fem-1_nih_50pc_*i*.pth`` performing model for SDFN training later point.
+Once training is completed, take the best ``fem-1_nih_50pc_*i*.pth`` performing model for SDFN training later point. Update the ``fem-1_nih_50pc_*i*.pth`` in Configuration.ipynb(https://github.com/veerendra12/CS598-DL4H-Project/blob/main/notebooks/Configuration.ipynb) 
+
+| Parameter                 | Value                                                   |
+|---------------------------|---------------------------------------------------------|
+| FEM1_BEST_MODEL           | BASE_DIR + "results/fem-1_nih_50pc_*i*.pth"             |
 
 ### Training Feature Extraction Model-2 (FEM-2):
 FEM-1 uses Dense-121 architecture based model fed with Lung Region cropped NIH CXR images for classifying 14 labels. This model uses earlier trained best *Lung Segmentation Model* for Lung segmentation creation. Ensure or set the following configuration parameters in Configuration.ipynb(https://github.com/veerendra12/CS598-DL4H-Project/blob/main/notebooks/Configuration.ipynb) before initiating the training:
@@ -103,18 +107,35 @@ FEM-1 uses Dense-121 architecture based model fed with Lung Region cropped NIH C
 
 
 For training FEM-2, perform:
-1. Open [FeatureExtractionModels.ipynb](https://github.com/veerendra12/CS598-DL4H-Project/blob/main/notebooks/FeatureExtractionModels.ipynb) 
+1. Open [SDFNPipeLine.ipynb](https://github.com/veerendra12/CS598-DL4H-Project/blob/main/notebooks/SDFNPipeLine.ipynb) 
 2. Run all
 
-Once training is completed, take the best ``fem-2_nih_50pc_*i*.pth`` performing model for SDFN training later point.
+Once training is completed, take the best ``fem-2_nih_50pc_*i*.pth`` performing model for SDFN training later point. Update the ``fem-2_nih_50pc_*i*.pth`` in Configuration.ipynb(https://github.com/veerendra12/CS598-DL4H-Project/blob/main/notebooks/Configuration.ipynb)
+
+| Parameter                 | Value                                                   |
+|---------------------------|---------------------------------------------------------|
+| FEM2_BEST_MODEL           | BASE_DIR + "results/fem-2_nih_50pc_*i*.pth"             |
 
 
-Citation to the original paper
-Link to the original paper’s repo (if applicable)
-Dependencies
-Data download instruction
-Preprocessing code + command (if applicable)
-Training code + command (if applicable)
-Evaluation code + command (if applicable)
-Pretrained model (if applicable)
-Table of results (no need to include additional experiments, but main reproducibility result should be included)
+### Training Segementation based Deep Fusion Netowrk (SDFN):
+SDFN uses earlier pretrained best FEM-1 (``fem-1_nih_50pc_*i*.pth``) and FEM-2 (``fem-2_nih_50pc_*i*.pth``) to construct a Fusion network. SDFN gets the last layer latent vector for full CXR image from FEM-1 and Lung region image from FEM-2, concatenate the vectors and passes to a FC CNN for classification of the 14 Thoracic diseases. Ensure or set the following configuration parameters in Configuration.ipynb(https://github.com/veerendra12/CS598-DL4H-Project/blob/main/notebooks/Configuration.ipynb) before initiating the training:
+
+| Parameter                 | Value           | Description                                                      |
+|---------------------------|-----------------|------------------------------------------------------------------|
+| MODEL_TYPE                | SDFN            | Train SDFNtype model                                             |
+| USE_LUNG_REGION_GENERATOR | False           | FEM-1 uses full img and FEM-2 uses lung region img automatically |
+| SAMPLE_RATIO              | 0.5             | Uses 50% of the data set for train and validation.               |
+| RUN_PREFIX                | sdfn_nih_50pc_  | Prefix for the model check point files                           |
+| BATCH_SIZE                | 16              |                                                                  |
+| NUM_EPOCHS                | 10              |                                                                  |
+| RESUME_TRAINING           | False           | True if resuming a partial training session                      |
+| EPOCH_START               | 0               | >0 when resuming a partial training session, from where to start |
+
+For training SDFN, perform:
+1. Open [SDFNPipeLine.ipynb](https://github.com/veerendra12/CS598-DL4H-Project/blob/main/notebooks/SDFNPipeLine.ipynb) 
+2. Run all
+
+
+## 🚆 Model Evaluation
+
+## 🚆 Results
