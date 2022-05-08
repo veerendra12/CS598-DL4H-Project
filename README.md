@@ -71,6 +71,7 @@ FEM-1 uses Dense-121 architecture based model fed with full resolution of NIH CX
 
 | Parameter                 | Value           | Description                                                      |
 |---------------------------|-----------------|------------------------------------------------------------------|
+| MODEL_TYPE                | FEM             | Train FEM type model                                             |
 | USE_LUNG_REGION_GENERATOR | False           | Uses full CXR image for training                                 |
 | SAMPLE_RATIO              | 0.5             | Uses 50% of the data set for train and validation.               |
 | RUN_PREFIX                | fem-1_nih_50pc_ | Prefix for the model check point files                           |
@@ -91,6 +92,7 @@ FEM-1 uses Dense-121 architecture based model fed with Lung Region cropped NIH C
 
 | Parameter                 | Value           | Description                                                      |
 |---------------------------|-----------------|------------------------------------------------------------------|
+| MODEL_TYPE                | FEM             | Train FEM type model                                             |
 | USE_LUNG_REGION_GENERATOR | True            | Uses Lung Region cropped NIH CXR images for training             |
 | SAMPLE_RATIO              | 0.5             | Uses 50% of the data set for train and validation.               |
 | RUN_PREFIX                | fem-2_nih_50pc_ | Prefix for the model check point files                           |
