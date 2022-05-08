@@ -67,7 +67,7 @@ All the image data sets are transformed during model runtime. No preprocessing b
 ## 🚆 Model Training
 
 ### Training Feature Extraction Model-1 (FEM-1):
-FEM-1 uses Dense-121 architecture based model fed with full resolution of NIH CXR images for classifying 14 labels. Ensure or set the following configuration parameters in Configuration.ipynb(https://github.com/veerendra12/CS598-DL4H-Project/blob/main/notebooks/Configuration.ipynb) before initiating the training:
+FEM-1 uses Dense-121 architecture based model fed with full resolution of NIH CXR images for classifying 14 labels. Ensure or set the following configuration parameters in [Configuration.ipynb](https://github.com/veerendra12/CS598-DL4H-Project/blob/main/notebooks/Configuration.ipynb) before initiating the training:
 
 | Parameter                 | Value           | Description                                                      |
 |---------------------------|-----------------|------------------------------------------------------------------|
@@ -86,14 +86,14 @@ For training FEM-1, perform:
 1. Open [SDFNPipeLine.ipynb](https://github.com/veerendra12/CS598-DL4H-Project/blob/main/notebooks/SDFNPipeLine.ipynb) 
 2. Run all
 
-Once training is completed, take the best ``fem-1_nih_50pc_*i*.pth`` performing model for SDFN training later point. Update the ``fem-1_nih_50pc_*i*.pth`` in Configuration.ipynb(https://github.com/veerendra12/CS598-DL4H-Project/blob/main/notebooks/Configuration.ipynb) 
+Once training is completed, take the best ``fem-1_nih_50pc_*i*.pth`` performing model for SDFN training later point. Update the ``fem-1_nih_50pc_*i*.pth`` in [Configuration.ipynb](https://github.com/veerendra12/CS598-DL4H-Project/blob/main/notebooks/Configuration.ipynb) 
 
 | Parameter                 | Value                                                   |
 |---------------------------|---------------------------------------------------------|
 | FEM1_BEST_MODEL           | BASE_DIR + "results/fem-1_nih_50pc_*i*.pth"             |
 
 ### Training Feature Extraction Model-2 (FEM-2):
-FEM-1 uses Dense-121 architecture based model fed with Lung Region cropped NIH CXR images for classifying 14 labels. This model uses earlier trained best *Lung Segmentation Model* for Lung segmentation creation. Ensure or set the following configuration parameters in Configuration.ipynb(https://github.com/veerendra12/CS598-DL4H-Project/blob/main/notebooks/Configuration.ipynb) before initiating the training:
+FEM-1 uses Dense-121 architecture based model fed with Lung Region cropped NIH CXR images for classifying 14 labels. This model uses earlier trained best *Lung Segmentation Model* for Lung segmentation creation. Ensure or set the following configuration parameters in [Configuration.ipynb](https://github.com/veerendra12/CS598-DL4H-Project/blob/main/notebooks/Configuration.ipynb) before initiating the training:
 
 | Parameter                 | Value           | Description                                                      |
 |---------------------------|-----------------|------------------------------------------------------------------|
@@ -112,7 +112,7 @@ For training FEM-2, perform:
 1. Open [SDFNPipeLine.ipynb](https://github.com/veerendra12/CS598-DL4H-Project/blob/main/notebooks/SDFNPipeLine.ipynb) 
 2. Run all
 
-Once training is completed, take the best ``fem-2_nih_50pc_*i*.pth`` performing model for SDFN training later point. Update the ``fem-2_nih_50pc_*i*.pth`` in Configuration.ipynb(https://github.com/veerendra12/CS598-DL4H-Project/blob/main/notebooks/Configuration.ipynb)
+Once training is completed, take the best ``fem-2_nih_50pc_*i*.pth`` performing model for SDFN training later point. Update the ``fem-2_nih_50pc_*i*.pth`` in [Configuration.ipynb](https://github.com/veerendra12/CS598-DL4H-Project/blob/main/notebooks/Configuration.ipynb)
 
 | Parameter                 | Value                                                   |
 |---------------------------|---------------------------------------------------------|
@@ -120,7 +120,7 @@ Once training is completed, take the best ``fem-2_nih_50pc_*i*.pth`` performing 
 
 
 ### Training Segementation based Deep Fusion Netowrk (SDFN):
-SDFN uses earlier pretrained best FEM-1 (``fem-1_nih_50pc_*i*.pth``) and FEM-2 (``fem-2_nih_50pc_*i*.pth``) to construct a Fusion network. SDFN gets the last layer latent vector for full CXR image from FEM-1 and Lung region image from FEM-2, concatenate the vectors and passes to a FC CNN for classification of the 14 Thoracic diseases. Ensure or set the following configuration parameters in Configuration.ipynb(https://github.com/veerendra12/CS598-DL4H-Project/blob/main/notebooks/Configuration.ipynb) before initiating the training:
+SDFN uses earlier pretrained best FEM-1 (``fem-1_nih_50pc_*i*.pth``) and FEM-2 (``fem-2_nih_50pc_*i*.pth``) to construct a Fusion network. SDFN gets the last layer latent vector for full CXR image from FEM-1 and Lung region image from FEM-2, concatenate the vectors and passes to a FC CNN for classification of the 14 Thoracic diseases. Ensure or set the following configuration parameters in [Configuration.ipynb](https://github.com/veerendra12/CS598-DL4H-Project/blob/main/notebooks/Configuration.ipynb) before initiating the training:
 
 | Parameter                 | Value           | Description                                                      |
 |---------------------------|-----------------|------------------------------------------------------------------|
@@ -141,14 +141,14 @@ For training SDFN, perform:
 
 ## ⏱️ Model Evaluation
 ### Evaluating Feature Extraction Model-1 (FEM-1):
-Ensure or set the following configuration parameters in Configuration.ipynb(https://github.com/veerendra12/CS598-DL4H-Project/blob/main/notebooks/Configuration.ipynb), in additon to 'FEM-1 Training' parameters before initiating the evaluation run:
+Ensure or set the following configuration parameters in [Configuration.ipynb](https://github.com/veerendra12/CS598-DL4H-Project/blob/main/notebooks/Configuration.ipynb), in additon to 'FEM-1 Training' parameters before initiating the evaluation run:
 
 | Parameter                 | Value           | Description                                                      |
 |---------------------------|-----------------|------------------------------------------------------------------|
 | EVAL_MODE                 | True            | Evaluationode                                                    |
 
 ### Evaluating Feature Extraction Model-1 (FEM-2):
-Ensure or set the following configuration parameters in Configuration.ipynb(https://github.com/veerendra12/CS598-DL4H-Project/blob/main/notebooks/Configuration.ipynb), in additon to 'FEM-2 Training' parameters before initiating the evaluation run:
+Ensure or set the following configuration parameters in [Configuration.ipynb](https://github.com/veerendra12/CS598-DL4H-Project/blob/main/notebooks/Configuration.ipynb), in additon to 'FEM-2 Training' parameters before initiating the evaluation run:
 
 | Parameter                 | Value           | Description                                                      |
 |---------------------------|-----------------|------------------------------------------------------------------|
@@ -156,7 +156,7 @@ Ensure or set the following configuration parameters in Configuration.ipynb(http
 
 
 ### Evaluating Segementation based Deep Fusion Netowrk (SDFN):
-Ensure or set the following configuration parameters in Configuration.ipynb(https://github.com/veerendra12/CS598-DL4H-Project/blob/main/notebooks/Configuration.ipynb), in additon to 'SDFN Training' parameters before initiating the evaluation run:
+Ensure or set the following configuration parameters in [Configuration.ipynb](https://github.com/veerendra12/CS598-DL4H-Project/blob/main/notebooks/Configuration.ipynb), in additon to 'SDFN Training' parameters before initiating the evaluation run:
 
 | Parameter                 | Value           | Description                                                      |
 |---------------------------|-----------------|------------------------------------------------------------------|
@@ -164,7 +164,7 @@ Ensure or set the following configuration parameters in Configuration.ipynb(http
 
 
 ## ⏱️ Results
-Once all models are trained and evaluted, with the best models of **Lung Generation Model**(LRG), **Feature Extraction Model-1** (FEM-1), **Feature Extraction Model-2** (FEM-2) and **Segementation based Deep Fusion Network** (SDFN) ResultsPlotting.ipynb(https://github.com/veerendra12/CS598-DL4H-Project/blob/main/notebooks/ResultsPlotting.ipynb) to produce results.
+Once all models are trained and evaluted, with the best models of **Lung Generation Model**(LRG), **Feature Extraction Model-1** (FEM-1), **Feature Extraction Model-2** (FEM-2) and **Segementation based Deep Fusion Network** (SDFN) [ResultsPlotting.ipynb](https://github.com/veerendra12/CS598-DL4H-Project/blob/main/notebooks/ResultsPlotting.ipynb) to produce results.
 
 
 ## 🥅 Conclusion
