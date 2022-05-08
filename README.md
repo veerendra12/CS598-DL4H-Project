@@ -14,7 +14,6 @@ This is a reproducibility study of multi label classification problem in Healthc
 The key focus of the paper is to improve classification performance with a novel architecture proposed as **Segmentation-based Deep Fusion Network**. The SDFN architecture is based on the crucial idea that most of Thoracic disease related features are centered within lung region. So the network builds first a Lung segmentation model, with which a dual pathway CNN using DenseNet-121s are trained. One model (referred as Feature Extraction Model - FEM) with actual full CX image (FEM-1) and another model (FEM-2) fed with cropped Lung region image. The latent vectors from both FEM-1 and FEM-2 are taken to train final SDFN model to multi-classify among 14 Thoracic Lung diseases. The hypothesis of the paper is that SDFN using Lung Segementation improves performance over non-Lung Segementation based model.
 
 
-
 ### Model Pipeline Architecture
 Here is the pipeline flow of different model sequence and their inter-dependency along with data sets.
 
@@ -23,6 +22,10 @@ Here is the pipeline flow of different model sequence and their inter-dependency
 
 ## ⚙️ Computational Requirements
 This study needs a GPU minimum of 16GB RAM, minimum configuration of T4, P100 or higher is needed. The code, primarily as ipynb notebooks, have been developed using [Google colab](https://colab.research.google.com/) GPU environment. And it uses [Google drive](https://drive.google.com/) as storage service. However, the code can be easily tweaked to run on a different environment and different storage. Use [notebooks/Configuration.ipynb](notebooks/Configuration.ipynb) to change storage location of data sets and results.
+
+Due to computational challenges, our reproducibility study once considered 50% (randomly sampled) NIH data set. That constitutes:
+* Training images: 44,848
+* Validation images: 11,212
 
 *Configuration of the machine used:*
 > GPU: Tesla P100-PCIE
@@ -62,6 +65,47 @@ All the image data sets are transformed during model runtime. No preprocessing b
 
 
 ## 🚆 Model Training
+
+### Training Feature Extraction Model-1 (FEM-1):
+FEM-1 uses Dense-121 architecture based model fed with full resolution of NIH CXR images for classifying 14 labels. Ensure or set the following configuration parameters in Configuration.ipynb(https://github.com/veerendra12/CS598-DL4H-Project/blob/main/notebooks/Configuration.ipynb) before initiating the training:
+
+| Parameter                 | Value           | Description                                                      |
+|---------------------------|-----------------|------------------------------------------------------------------|
+| USE_LUNG_REGION_GENERATOR | False           | Uses full CXR image for training                                 |
+| SAMPLE_RATIO              | 0.5             | Uses 50% of the data set for train and validation.               |
+| RUN_PREFIX                | fem-1_nih_50pc_ | Prefix for the model check point files                           |
+| BATCH_SIZE                | 16              |                                                                  |
+| NUM_EPOCHS                | 10              |                                                                  |
+| RESUME_TRAINING           | False           | True if resuming a partial training session                      |
+| EPOCH_START               | 0               | >0 when resuming a partial training session, from where to start |
+
+
+For training FEM-1, perform:
+1. Open [FeatureExtractionModels.ipynb](https://github.com/veerendra12/CS598-DL4H-Project/blob/main/notebooks/FeatureExtractionModels.ipynb) 
+2. Run all
+
+Once training is completed, take the best ``fem-1_nih_50pc_*i*.pth`` performing model for SDFN training later point.
+
+### Training Feature Extraction Model-2 (FEM-2):
+FEM-1 uses Dense-121 architecture based model fed with Lung Region cropped NIH CXR images for classifying 14 labels. This model uses earlier trained best *Lung Segmentation Model* for Lung segmentation creation. Ensure or set the following configuration parameters in Configuration.ipynb(https://github.com/veerendra12/CS598-DL4H-Project/blob/main/notebooks/Configuration.ipynb) before initiating the training:
+
+| Parameter                 | Value           | Description                                                      |
+|---------------------------|-----------------|------------------------------------------------------------------|
+| USE_LUNG_REGION_GENERATOR | True            | Uses Lung Region cropped NIH CXR images for training             |
+| SAMPLE_RATIO              | 0.5             | Uses 50% of the data set for train and validation.               |
+| RUN_PREFIX                | fem-2_nih_50pc_ | Prefix for the model check point files                           |
+| BATCH_SIZE                | 16              |                                                                  |
+| NUM_EPOCHS                | 10              |                                                                  |
+| RESUME_TRAINING           | False           | True if resuming a partial training session                      |
+| EPOCH_START               | 0               | >0 when resuming a partial training session, from where to start |
+
+
+For training FEM-2, perform:
+1. Open [FeatureExtractionModels.ipynb](https://github.com/veerendra12/CS598-DL4H-Project/blob/main/notebooks/FeatureExtractionModels.ipynb) 
+2. Run all
+
+Once training is completed, take the best ``fem-2_nih_50pc_*i*.pth`` performing model for SDFN training later point.
+
 
 Citation to the original paper
 Link to the original paper’s repo (if applicable)
