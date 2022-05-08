@@ -163,5 +163,8 @@ Ensure or set the following configuration parameters in Configuration.ipynb(http
 | EVAL_MODE                 | True            | Evaluationode                                                    |
 
 
+## ⏱️ Results
+Once all models are trained and evaluted, with the best models of **Lung Generation Model**(LRG), **Feature Extraction Model-1** (FEM-1), **Feature Extraction Model-2** (FEM-2) and **Segementation based Deep Fusion Network** (SDFN) ResultsPlotting.ipynb(https://github.com/veerendra12/CS598-DL4H-Project/blob/main/notebooks/ResultsPlotting.ipynb) to produce results.
 
-## 🥅 Results
+
+## 🥅 Conclusion
