@@ -147,6 +147,10 @@ Ensure or set the following configuration parameters in [Configuration.ipynb](ht
 |---------------------------|-----------------|------------------------------------------------------------------|
 | EVAL_MODE                 | True            | Evaluationode                                                    |
 
+For FEM-1 evaluation, perform:
+1. Open [SDFNPipeLine.ipynb](https://github.com/veerendra12/CS598-DL4H-Project/blob/main/notebooks/SDFNPipeLine.ipynb) 
+2. Run all
+
 ### Evaluating Feature Extraction Model-1 (FEM-2):
 Ensure or set the following configuration parameters in [Configuration.ipynb](https://github.com/veerendra12/CS598-DL4H-Project/blob/main/notebooks/Configuration.ipynb), in additon to 'FEM-2 Training' parameters before initiating the evaluation run:
 
@@ -155,6 +159,9 @@ Ensure or set the following configuration parameters in [Configuration.ipynb](ht
 | EVAL_MODE                 | True            | Evaluationode                                                    |
 
 
+For FEM-2 evaluation, perform:
+1. Open [SDFNPipeLine.ipynb](https://github.com/veerendra12/CS598-DL4H-Project/blob/main/notebooks/SDFNPipeLine.ipynb) 
+
 ### Evaluating Segementation based Deep Fusion Netowrk (SDFN):
 Ensure or set the following configuration parameters in [Configuration.ipynb](https://github.com/veerendra12/CS598-DL4H-Project/blob/main/notebooks/Configuration.ipynb), in additon to 'SDFN Training' parameters before initiating the evaluation run:
 
@@ -162,9 +169,19 @@ Ensure or set the following configuration parameters in [Configuration.ipynb](ht
 |---------------------------|-----------------|------------------------------------------------------------------|
 | EVAL_MODE                 | True            | Evaluationode                                                    |
 
+For SDFN evaluation, perform:
+1. Open [SDFNPipeLine.ipynb](https://github.com/veerendra12/CS598-DL4H-Project/blob/main/notebooks/SDFNPipeLine.ipynb) 
 
 ## ⏱️ Results
 Once all models are trained and evaluted, with the best models of **Lung Generation Model**(LRG), **Feature Extraction Model-1** (FEM-1), **Feature Extraction Model-2** (FEM-2) and **Segementation based Deep Fusion Network** (SDFN) [ResultsPlotting.ipynb](https://github.com/veerendra12/CS598-DL4H-Project/blob/main/notebooks/ResultsPlotting.ipynb) to produce results.
 
+### Lung Region Segementation Results
+Following are some of the results from **Lung Region Generator** (LRG) model
+
+<img src="https://github.com/veerendra12/CS598-DL4H-Project/blob/main/media/LRGImage.png" width=1000>
+<img src="https://github.com/veerendra12/CS598-DL4H-Project/blob/main/media/LRGImage2.png" width=1000>
+<img src="https://github.com/veerendra12/CS598-DL4H-Project/blob/main/media/LRGImage3.png" width=1000>
+<img src="https://github.com/veerendra12/CS598-DL4H-Project/blob/main/media/LRGImage4.png" width=1000>
+<img src="https://github.com/veerendra12/CS598-DL4H-Project/blob/main/media/LRGImage5.png" width=1000>
 
 ## 🥅 Conclusion
