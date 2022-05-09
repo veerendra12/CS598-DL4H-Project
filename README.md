@@ -185,3 +185,11 @@ Following are some of the results from **Lung Region Generator** (LRG) model
 <img src="https://github.com/veerendra12/CS598-DL4H-Project/blob/main/media/LRGImage5.png" width=1000>
 
 ### Classification Performance FEM-1 vs FEM-2 vs SDFN
+Here are the ROC plots for each of 14 class labels, which show SDFN has improved performance over `Entire CXR Image`
+
+<img src="https://github.com/veerendra12/CS598-DL4H-Project/blob/main/media/ROC.png" width=1000>
+
+And here are the ROC-AUC measure for the three models. This as well how SDFN has improved performance over the rest
+
+<img src="https://github.com/veerendra12/CS598-DL4H-Project/blob/main/media/ROCAUC.png" width=1000>
+
