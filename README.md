@@ -66,6 +66,7 @@ All the image data sets are transformed during model runtime. No preprocessing b
 
 ## 🚆 Model Training
 
+
 ### Training Feature Extraction Model-1 (FEM-1):
 FEM-1 uses Dense-121 architecture based model fed with full resolution of NIH CXR images for classifying 14 labels. Ensure or set the following configuration parameters in [Configuration.ipynb](https://github.com/veerendra12/CS598-DL4H-Project/blob/main/notebooks/Configuration.ipynb) before initiating the training:
 
@@ -91,6 +92,16 @@ Once training is completed, take the best ``fem-1_nih_50pc_*i*.pth`` performing 
 | Parameter                 | Value                                                   |
 |---------------------------|---------------------------------------------------------|
 | FEM1_BEST_MODEL           | BASE_DIR + "results/fem-1_nih_50pc_*i*.pth"             |
+
+
+### Training Lung Segmentation Model(LSM):
+LSM uses U-Net based architecture trained over Lung region mask image data set.
+
+For training LSM, perform:
+1. Open [UNetModel_ChestXRay.ipynb](https://github.com/veerendra12/CS598-DL4H-Project/blob/main/src/notebooks/UNetModel_ChestXRay.ipynb) 
+2. Run all
+
+
 
 ### Training Feature Extraction Model-2 (FEM-2):
 FEM-1 uses Dense-121 architecture based model fed with Lung Region cropped NIH CXR images for classifying 14 labels. This model uses earlier trained best *Lung Segmentation Model* for Lung segmentation creation. Ensure or set the following configuration parameters in [Configuration.ipynb](https://github.com/veerendra12/CS598-DL4H-Project/blob/main/notebooks/Configuration.ipynb) before initiating the training:
